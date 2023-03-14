@@ -1,0 +1,39 @@
+CREATE TABLE TaskTable (
+    Id UNIQUEIDENTIFIER NOT NULL,
+    Status NVARCHAR(20) NOT NULL,
+    RepositoryName NVARCHAR(50) NOT NULL,
+    Findings NVARCHAR(MAX) NOT NULL,
+    QueuedAt DATETIME NOT NULL,
+    ScanningAt DATETIME,
+    FinishedAt DATETIME,
+    CONSTRAINT PK_ExampleTable PRIMARY KEY (Id)
+);
+
+INSERT INTO
+    TaskTable (
+        Id,
+        Status,
+        RepositoryName,
+        Findings,
+        QueuedAt,
+        ScanningAt,
+        FinishedAt
+    )
+VALUES
+    (
+        NEWID(),
+        -- generate a new unique identifier
+        'Queued',
+        'ExampleRepository',
+        '{"finding1": {"severity": "high", "description": "Test finding 1"}, "finding2": {"severity": "medium", "description": "Test finding 2"}}',
+        -- example JSON data
+        GETDATE(),
+        -- current date and time
+        NULL,
+        NULL
+    );
+
+SELECT * FROM TaskTable;
+
+
+DELETE FROM TaskTable;

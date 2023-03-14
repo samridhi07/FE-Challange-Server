@@ -1,0 +1,49 @@
+// body to middle of screen
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+@keyframes progress-bar {
+  0% {
+    left: -5vw;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+#loader {
+  max-width: 128px;
+  position: relative;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+
+  #logo {
+    margin: 0 auto;
+    padding-bottom: 35px;
+  }
+  #progressbar {
+    background-color: gold;
+    height: 3px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      width: 5vw;
+      position: relative;
+      left: -3vw;
+      background-color: #000;
+      content: ' ';
+      display: block;
+      height: 3px;
+      border-radius: 30px;
+      animation: 1.5s progress-bar 0.5s infinite alternate ease-in-out;
+    }
+  }
+}

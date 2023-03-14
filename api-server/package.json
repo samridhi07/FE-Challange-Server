@@ -1,0 +1,19 @@
+{
+  "name": "full-stack-engineer-challenge-api",
+  "version": "1.0.0",
+  "description": "Full Stack Engineer Challange API Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "msnodesqlv8": "^3.0.1",
+    "mssql": "^9.1.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
+    "uuid": "^9.0.0"
+  }
+}

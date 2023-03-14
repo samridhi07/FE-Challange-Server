@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.env
+
+# Dependency directories
+jspm_packages/
+typings/
+
+# Distribution files
+dist/
+out/
+build/
+*.zip
+*.tgz
+
+# Logs and databases
+logs/
+*.log
+*.swp
+*.swo
+*.sqlite
+*.sqlite3
+*.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# Miscellaneous
+*.bak
+*.backup
+*.DS_Store
+*.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
