@@ -1,33 +1,22 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+
 const FormScreen = () => {
 
     const [formData, setFormData] = useState({
-         id: '',
-         status: '',
-         repositoryName:'',
-         findings:'',
-         queuedAt:'',
-         scanningAt:'',
-         finishedAt:''
+        Status: '',
+         RepositoryName:'',
+         Findings: '',
          }); 
          const handleSubmit = async (event) => {
             event.preventDefault();
-            try {
-                const response = await fetch('/tasks', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(formData),
-                });
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('Form submitted successfully:', data);
-                  } else {
-                    console.error('Error submitting form:', response.status);
-                  }
-                } catch (error) {
-                  console.error('Error submitting form:', error);
-                }
+            var findingsJSON = JSON.parse(formData.Findings)
+
+            formData.Findings = findingsJSON;
+            const response = axios.post('http://localhost:3000/tasks', formData)
+            console.log(formData)
             };
+           
           
           const handleChange = (event) => {
             setFormData({
@@ -39,13 +28,13 @@ const FormScreen = () => {
         return (
         <form onSubmit={handleSubmit}>
          <label>
-         Status:<input type="text" name="status" value={formData.status} onChange={handleChange} />
+         Status:<input type="text" name="Status" value={formData.Status} onChange={handleChange} />
          </label>
          <label>
-         RepositoryName:<input type="text" name="repositoryName" value={formData.repositoryName} onChange={handleChange} />
+         RepositoryName:<input type="text" name="RepositoryName" value={formData.RepositoryName} onChange={handleChange} />
          </label>
          <label>
-         Findings:<input type="text-area" name="findings" value={formData.findings} onChange={handleChange} />
+         Findings:<input type="text-area" name="Findings" value={formData.Findings} onChange={handleChange} />
          </label>
          
          <button type="submit">Submit</button>
